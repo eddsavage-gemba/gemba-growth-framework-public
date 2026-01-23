@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Details - Gemba Growth Framework</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+  <div x-data="gradeApp()" x-init="init()">
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <a href="index" class="text-xl font-bold text-gray-900">
+            Growth Framework
+          </a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <template x-if="grade">
+        <div>
+          <!-- Grade Header -->
+          <section class="bg-white rounded-xl shadow-md mb-8 overflow-hidden p-8">
+            <div class="flex flex-col md:flex-row gap-8">
+              <!-- Avatar -->
+              <div class="flex-shrink-0 flex justify-center">
+                <div class="w-48 h-48 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 shadow-lg">
+                  <img :src="grade.avatar" :alt="`Avatar for ${grade.persona}`"
+                    class="w-full h-full object-cover">
+                </div>
+              </div>
+              <!-- Content -->
+              <div class="flex-1">
+                <span class="text-sm font-medium text-indigo-600" x-text="`${grade.roleLevel} - ${grade.SFIA}`"></span>
+                <h1 class="text-3xl font-bold text-gray-900 mt-2 mb-2" x-text="grade.persona"></h1>
+                <p class="text-lg text-gray-600 mb-4" x-text="grade.tagline"></p>
+                <div x-show="personaContent" class="prose prose-sm max-w-none mb-6 text-gray-700"
+                  x-html="personaContent"></div>
+                <div class="flex flex-wrap gap-4">
+                  <a href="index" class="text-indigo-600 hover:text-indigo-800">← Back to all personas</a>
+                  <a x-show="grade.grade < Math.max(...grades.map(g => g.grade))"
+                    :href="`compare?from=${grade.grade}&to=${getAdjacentGrade()}`"
+                    class="text-indigo-600 hover:text-indigo-800">
+                    How do I Reach the next level →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Capability Matrix -->
+          <section>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Capability Expectations</h2>
+            <div class="space-y-4">
+              <template x-for="category in categories" :key="category.id">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                  <!-- Category Header (Accordion) -->
+                  <button @click="toggleCategory(category.id)"
+                    class="w-full px-6 py-4 flex items-center justify-between text-left bg-gray-50 hover:bg-gray-100 transition-colors"
+                    :aria-expanded="expandedCategories.includes(category.id)">
+                    <h3 class="text-lg font-semibold text-gray-900" x-text="category.name"></h3>
+                    <svg class="w-5 h-5 text-gray-500 transition-transform"
+                      :class="{ 'rotate-180': expandedCategories.includes(category.id) }" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <!-- Category Content -->
+                  <div x-show="expandedCategories.includes(category.id)" x-collapse>
+                    <div class="px-6 py-4 space-y-6">
+                      <template x-for="capability in getCapabilitiesForCategory(category.id)" :key="capability.id">
+                        <div class="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+                          <h4 class="font-semibold text-gray-900 mb-1" x-text="capability.name"></h4>
+                          <p class="text-sm text-gray-500 mb-3" x-text="capability.description"></p>
+                          <ul class="list-disc list-outside ml-5 space-y-1 text-gray-700">
+                            <template x-for="item in capability.expectation" :key="item">
+                              <li x-text="item"></li>
+                            </template>
+                          </ul>
+                        </div>
+                      </template>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </section>
+        </div>
+      </template>
+
+      <template x-if="!grade && !loading">
+        <div class="text-center py-12">
+          <p class="text-gray-600">Grade not found.</p>
+          <a href="index" class="text-indigo-600 hover:text-indigo-800 mt-4 inline-block">← Back to all
+            personas</a>
+        </div>
+      </template>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500 text-sm">
+        Gemba Growth Framework
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/grade.js"></script>
+</body>
+
+</html>

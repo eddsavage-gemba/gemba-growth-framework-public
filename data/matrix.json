@@ -1,0 +1,47 @@
+{
+  "categories": [
+    {
+      "id": "people-growth",
+      "name": "People and Growth",
+      "capabilities": [
+        {
+          "id": "growth-craft",
+          "name": "Growth and Craft",
+          "description": "Continuously improving your skills and helping others grow."
+        },
+        {
+          "id": "personal-effectiveness",
+          "name": "Personal Effectiveness",
+          "description": "The behaviours you exhibit and how you operate within your team."
+        }
+      ]
+    },
+    {
+      "id": "client-mission",
+      "name": "Client and Mission",
+      "capabilities": [
+        {
+          "id": "client-value-impact",
+          "name": "Client Value and Impact",
+          "description": "Your contribution to our client mission and their goals."
+        },
+        {
+          "id": "delivery-quality",
+          "name": "Delivery Quality",
+          "description": "The calibre and quality of your work in relation to your core role."
+        }
+      ]
+    },
+    {
+      "id": "gemba-beyond",
+      "name": "Gemba and Beyond",
+      "capabilities": [
+        {
+          "id": "community-contribution",
+          "name": "Community and Contribution",
+          "description": "How you give back to the business and wider world."
+        }
+      ]
+    }
+  ]
+}
