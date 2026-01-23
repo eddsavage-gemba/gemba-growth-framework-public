@@ -6,7 +6,7 @@
       "SFIA": "SFIA 3",
       "persona": "The Curious Contributor",
       "tagline": "Learning fast, contributing reliably, and building confidence.",
-      "avatar": "/assets/avatars/grade-1.png"
+      "avatar": "./assets/avatars/grade-1.png"
     },
     {
       "grade": 2,
@@ -14,7 +14,7 @@
       "SFIA": "SFIA 4",
       "persona": "The Independent Problem-solver",
       "tagline": "A confident, autonomous contributor who improves delivery.",
-      "avatar": "/assets/avatars/grade-2.png"
+      "avatar": "./assets/avatars/grade-2.png"
     },
     {
       "grade": 3,
@@ -22,7 +22,7 @@
       "roleLevel": "Senior (Individual contributor)",
       "persona": "The Guiding Expert",
       "tagline": "A technical or professional authority who raises the bar.",
-      "avatar": "/assets/avatars/grade-3.png"
+      "avatar": "./assets/avatars/grade-3.png"
     },
     {
       "grade": 4,
@@ -30,7 +30,7 @@
       "roleLevel": "Senior (Lead)",
       "persona": "The Enabling Lead",
       "tagline": "A leader who grows people and delivery simultaneously.",
-      "avatar": "/assets/avatars/grade-4.png"
+      "avatar": "./assets/avatars/grade-4.png"
     },
     {
       "grade": 5,
@@ -38,7 +38,7 @@
       "roleLevel": "Principal",
       "persona": "The Strategic Shaper",
       "tagline": "A strategic leader who shapes direction, culture, and outcomes at scale.",
-      "avatar": "/assets/avatars/grade-5.png"
+      "avatar": "./assets/avatars/grade-5.png"
     },
     {
       "grade": 6,
@@ -46,7 +46,7 @@
       "roleLevel": "Principal+ (Business Growth Leader)",
       "persona": "The Connected Cultivator",
       "tagline": "A business focused leader who shapes the future of Gemba.",
-      "avatar": "/assets/avatars/grade-6.png"
+      "avatar": "./assets/avatars/grade-6.png"
     }
   ]
 }
