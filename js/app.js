@@ -1,20 +1,20 @@
 // Shared state and utilities for all pages
 
 async function loadGrades() {
-  const response = await fetch('data/grades.json');
+  const response = await fetch('assets/data/grades.json');
   const data = await response.json();
   return data.grades;
 }
 
 async function loadCategories() {
-  const response = await fetch('data/matrix.json');
+  const response = await fetch('assets/data/matrix.json');
   const data = await response.json();
   return data.categories || [];
 }
 
 async function loadExpectations(gradeNum) {
   try {
-    const response = await fetch(`data/expectations/grade-${gradeNum}.md`);
+    const response = await fetch(`assets/content/expectations/grade-${gradeNum}.md`);
     if (!response.ok) return {};
     const markdown = await response.text();
     return parseExpectationsMarkdown(markdown);

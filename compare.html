@@ -13,9 +13,9 @@
 <body class="min-h-screen bg-gray-50">
   <div x-data="compareApp()" x-init="init()">
     <!-- Header / Navigation -->
-    <header class="bg-white shadow-sm">
+    <header class="bg-gemba-navy shadow-sm">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <a href="index.html" class="text-xl font-bold text-gray-900">
+        <a href="index.html" class="text-xl font-bold text-white">
           Growth Framework
         </a>
       </nav>
@@ -31,16 +31,16 @@
           <div class="flex items-center justify-center gap-6 mb-8">
             <!-- From Avatar -->
             <a :href="`grade?g=${fromGrade}`" class="text-center hover:opacity-80 transition-opacity">
-              <div class="w-24 h-24 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 shadow-lg mx-auto">
+              <div class="w-24 h-24 rounded-xl overflow-hidden bg-gradient-to-br from-gemba-light-green to-gemba-pale-pink shadow-lg mx-auto">
                 <img :src="fromGradeData.avatar" :alt="fromGradeData.persona" class="w-full h-full object-cover">
               </div>
               <p class="mt-2 font-medium text-gray-900" x-text="fromGradeData.persona"></p>
             </a>
             <!-- Arrow -->
-            <div class="text-3xl text-indigo-500">→</div>
+            <div class="text-3xl text-gemba-mid-green">→</div>
             <!-- To Avatar -->
             <a :href="`grade?g=${toGrade}`" class="text-center hover:opacity-80 transition-opacity">
-              <div class="w-24 h-24 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 shadow-lg mx-auto">
+              <div class="w-24 h-24 rounded-xl overflow-hidden bg-gradient-to-br from-gemba-light-green to-gemba-pale-pink shadow-lg mx-auto">
                 <img :src="toGradeData.avatar" :alt="toGradeData.persona" class="w-full h-full object-cover">
               </div>
               <p class="mt-2 font-medium text-gray-900" x-text="toGradeData.persona"></p>
@@ -57,13 +57,13 @@
             <!-- From Grade -->
             <div class="flex flex-col gap-4">
               <a :href="`grade?g=${fromGrade}`" class="bg-white rounded-xl shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
-                <div class="w-28 sm:w-32 flex-shrink-0 bg-gradient-to-br from-indigo-100 to-purple-100">
+                <div class="w-28 sm:w-32 flex-shrink-0 bg-gradient-to-br from-gemba-light-green to-gemba-pale-pink">
                   <img :src="fromGradeData.avatar" :alt="`Avatar for Grade ${fromGradeData.grade}`"
                     class="w-full h-full object-cover">
                 </div>
                 <div class="p-4 flex flex-col justify-center">
                   <span class="text-xs text-gray-500 uppercase tracking-wide" x-text="fromGradeData.roleLevel"></span>
-                  <span class="text-sm text-indigo-600 mt-1"
+                  <span class="text-sm text-gemba-dark-green mt-1"
                     x-text="`${fromGradeData.roleLevel} - ${fromGradeData.SFIA}`"></span>
                   <h2 class="text-lg font-semibold text-gray-900" x-text="fromGradeData.persona"></h2>
                 </div>
@@ -75,13 +75,13 @@
             <!-- To Grade -->
             <div class="flex flex-col gap-4">
               <a :href="`grade?g=${toGrade}`" class="bg-white rounded-xl shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
-                <div class="w-28 sm:w-32 flex-shrink-0 bg-gradient-to-br from-indigo-100 to-purple-100">
+                <div class="w-28 sm:w-32 flex-shrink-0 bg-gradient-to-br from-gemba-light-green to-gemba-pale-pink">
                   <img :src="toGradeData.avatar" :alt="`Avatar for Grade ${toGradeData.grade}`"
                     class="w-full h-full object-cover">
                 </div>
                 <div class="p-4 flex flex-col justify-center">
                   <span class="text-xs text-gray-500 uppercase tracking-wide" x-text="toGradeData.roleLevel"></span>
-                  <span class="text-sm text-indigo-600 mt-1"
+                  <span class="text-sm text-gemba-dark-green mt-1"
                     x-text="`${toGradeData.roleLevel} - ${toGradeData.SFIA}`"></span>
                   <h2 class="text-lg font-semibold text-gray-900" x-text="toGradeData.persona"></h2>
                 </div>
@@ -96,7 +96,7 @@
           <div class="space-y-6">
             <template x-for="category in categories" :key="category.id">
               <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <h3 class="text-lg font-semibold text-gray-900 bg-gray-50 px-6 py-4" x-text="category.name"></h3>
+                <h3 class="text-lg font-semibold text-gemba-navy bg-gray-50 px-6 py-4" x-text="category.name"></h3>
                 <div class="divide-y divide-gray-100">
                   <template x-for="capability in category.capabilities" :key="capability.id">
                     <div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
@@ -111,18 +111,18 @@
                         </ul>
                       </div>
                       <!-- To Grade Expectation -->
-                      <div class="p-4" :class="{ 'bg-green-50': hasChanged(capability) }">
+                      <div class="p-4" :class="{ 'bg-emerald-50': hasChanged(capability) }">
                         <h4 class="font-medium text-gray-900 mb-1" x-text="capability.name"></h4>
                         <p class="text-xs text-gray-500 mb-2" x-text="capability.description"></p>
                         <ul class="list-disc list-outside ml-5 space-y-1 text-sm"
-                          :class="hasChanged(capability) ? 'text-green-700' : 'text-gray-600'">
+                          :class="hasChanged(capability) ? 'text-gemba-dark-green' : 'text-gray-600'">
                           <template x-for="item in getExpectation(toGrade, capability)" :key="item">
                             <li x-text="item"></li>
                           </template>
                         </ul>
                         <template x-if="hasChanged(capability)">
                           <span
-                            class="inline-block mt-2 text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded">
+                            class="inline-block mt-2 text-xs font-medium text-gemba-dark-green bg-gemba-light-green px-2 py-1 rounded">
                             Changed
                           </span>
                         </template>
@@ -144,8 +144,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500 text-sm">
+    <footer class="bg-gemba-navy mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gemba-light-green text-sm">
         Gemba Growth Framework
       </div>
     </footer>

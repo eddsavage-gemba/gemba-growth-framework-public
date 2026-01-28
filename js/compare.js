@@ -47,7 +47,7 @@ function compareApp() {
 
       if (this.fromGrade) {
         try {
-          const response = await fetch(`assets/personas/grade-${this.fromGrade}.md`);
+          const response = await fetch(`assets/content/personas/grade-${this.fromGrade}.md`);
           if (response.ok) {
             const markdown = await response.text();
             this.fromPersonaContent = marked.parse(markdown);
@@ -57,7 +57,7 @@ function compareApp() {
 
       if (this.toGrade) {
         try {
-          const response = await fetch(`assets/personas/grade-${this.toGrade}.md`);
+          const response = await fetch(`assets/content/personas/grade-${this.toGrade}.md`);
           if (response.ok) {
             const markdown = await response.text();
             this.toPersonaContent = marked.parse(markdown);
@@ -71,7 +71,7 @@ function compareApp() {
       if (!this.fromGrade || !this.toGrade) return;
 
       try {
-        const response = await fetch(`assets/next-grade-expectations/expectations-${this.fromGrade}-to-${this.toGrade}.md`);
+        const response = await fetch(`assets/content/transitions/expectations-${this.fromGrade}-to-${this.toGrade}.md`);
         if (response.ok) {
           const markdown = await response.text();
           this.transitionContent = marked.parse(markdown);

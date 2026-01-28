@@ -28,7 +28,7 @@ function gradeApp() {
 
     async loadPersonaContent(gradeNum) {
       try {
-        const response = await fetch(`assets/personas/grade-${gradeNum}.md`);
+        const response = await fetch(`assets/content/personas/grade-${gradeNum}.md`);
         if (response.ok) {
           const markdown = await response.text();
           this.personaContent = marked.parse(markdown);

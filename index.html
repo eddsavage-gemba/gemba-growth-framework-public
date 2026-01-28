@@ -12,9 +12,9 @@
 <body class="min-h-screen bg-gray-50">
   <div x-data="app()" x-init="init()">
     <!-- Header / Navigation -->
-    <header class="bg-white shadow-sm">
+    <header class="bg-gemba-navy shadow-sm">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <a href="index.html" class="text-xl font-bold text-gray-900">
+        <a href="index.html" class="text-xl font-bold text-white">
           Growth Framework
         </a>
       </nav>
@@ -23,11 +23,14 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Hero Section -->
-      <section class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to the Growth Framework</h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Explore our expectations as you grow your career at Gemba through friendly personas. Click on any persona to
-          learn more about what's expected at that level. Also see what you need to do to reach the next level.
+      <section class="mb-12">
+        <h1 class="text-4xl font-bold text-gemba-navy mb-4 text-center">Welcome to the Growth Framework</h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto text-left">
+          Helping make expectations clear for every level at Gemba. It describes what “good” looks like as
+          people grow in responsibility, impact, and influence. It makes progression transparent, fair, and
+          grounded in how
+          we actually deliver work. Each level is brought to life through a clear persona, helping you understand what’s
+          expected, how we assess performance, and where to focus your development next.
         </p>
       </section>
 
@@ -36,13 +39,13 @@
         <template x-for="g in grades" :key="g.grade">
           <a :href="`grade?g=${g.grade}`"
             class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow block overflow-hidden flex">
-            <div class="w-32 sm:w-36 flex-shrink-0 bg-gradient-to-br from-indigo-100 to-purple-100">
+            <div class="w-32 sm:w-36 flex-shrink-0 bg-gradient-to-br from-gemba-light-green to-gemba-pale-pink">
               <img :src="g.avatar" :alt="`Avatar for Grade ${g.grade} - ${g.persona}`"
                 class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col justify-center p-5">
-              <span class="text-sm font-medium text-indigo-600 mb-1" x-text="`${g.roleLevel} - ${g.SFIA}`"></span>
-              <h2 class="text-lg font-semibold text-gray-900 mb-1" x-text="g.persona"></h2>
+              <span class="text-sm font-medium text-gemba-dark-green mb-1" x-text="`${g.roleLevel} - ${g.SFIA}`"></span>
+              <h2 class="text-lg font-semibold text-gemba-navy mb-1" x-text="g.persona"></h2>
               <p class="text-gray-600 text-sm" x-text="g.tagline"></p>
             </div>
           </a>
@@ -51,8 +54,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500 text-sm">
+    <footer class="bg-gemba-navy mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gemba-light-green text-sm">
         Gemba Growth Framework
       </div>
     </footer>
